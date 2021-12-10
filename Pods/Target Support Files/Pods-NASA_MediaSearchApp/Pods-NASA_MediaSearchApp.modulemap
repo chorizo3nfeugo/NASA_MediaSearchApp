@@ -1,0 +1,6 @@
+framework module Pods_NASA_MediaSearchApp {
+  umbrella header "Pods-NASA_MediaSearchApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
