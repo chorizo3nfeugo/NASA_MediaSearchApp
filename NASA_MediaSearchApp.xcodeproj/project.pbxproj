@@ -16,6 +16,9 @@
 		C049306527608D0600C99F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C049306427608D0600C99F24 /* Assets.xcassets */; };
 		C049306827608D0600C99F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C049306627608D0600C99F24 /* LaunchScreen.storyboard */; };
 		C051058C276145C1001BA072 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051058B276145C1001BA072 /* NetworkingService.swift */; };
+		C0E8CE7627645666004949AA /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE7527645666004949AA /* ResponseHandler.swift */; };
+		C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE77276457E3004949AA /* NetworkingError.swift */; };
+		C0E8CE7A2764587E004949AA /* MediaObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		C049306727608D0600C99F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C049306927608D0600C99F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C051058B276145C1001BA072 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		C0E8CE7527645666004949AA /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		C0E8CE77276457E3004949AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		C0E8CE792764587E004949AA /* MediaObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObjects.swift; sourceTree = "<group>"; };
 		E77F1A194DF88D897AF53D4E /* Pods-NASA_MediaSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA_MediaSearchApp.release.xcconfig"; path = "Target Support Files/Pods-NASA_MediaSearchApp/Pods-NASA_MediaSearchApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +99,7 @@
 		C049305A27608D0100C99F24 /* NASA_MediaSearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				C051058A276145AD001BA072 /* Model */,
+				C051058A276145AD001BA072 /* Models */,
 				C01A03722760901700879E76 /* Controllers */,
 				C049305B27608D0100C99F24 /* AppDelegate.swift */,
 				C049305D27608D0100C99F24 /* SceneDelegate.swift */,
@@ -105,12 +111,15 @@
 			path = NASA_MediaSearchApp;
 			sourceTree = "<group>";
 		};
-		C051058A276145AD001BA072 /* Model */ = {
+		C051058A276145AD001BA072 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C051058B276145C1001BA072 /* NetworkingService.swift */,
+				C0E8CE792764587E004949AA /* MediaObjects.swift */,
+				C0E8CE7527645666004949AA /* ResponseHandler.swift */,
+				C0E8CE77276457E3004949AA /* NetworkingError.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +240,11 @@
 				C051058C276145C1001BA072 /* NetworkingService.swift in Sources */,
 				C01A03742760904B00879E76 /* SearchViewController.swift in Sources */,
 				C049305C27608D0100C99F24 /* AppDelegate.swift in Sources */,
+				C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */,
 				C01A03762760A13F00879E76 /* CollectionViewCell.swift in Sources */,
 				C049305E27608D0100C99F24 /* SceneDelegate.swift in Sources */,
+				C0E8CE7627645666004949AA /* ResponseHandler.swift in Sources */,
+				C0E8CE7A2764587E004949AA /* MediaObjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class CollectionViewCell: UICollectionViewCell {
     
@@ -18,7 +20,26 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageDetailLabel: UILabel!
     
     
-    func setupArrayToCells(with populateImage: NSArray ){
+    
+    
+    
+    func setupArrayToCells(){
+        
+/// To DO :  Need to create a loop to have each cell populate image
+        
+        let url = "https://images-assets.nasa.gov/image/PIA08789/PIA08789~small.jpg"
+       
+        AF.request(url).responseImage { response  in
+            if let image = response.value {
+                
+                DispatchQueue.main.async {
+                    let radius: CGFloat = 15.0
+                    self.imageInCell?.image = image.af.imageRounded(withCornerRadius: radius)
+                }
+           print("\(image)")
+           
+            }
+        }
     //    imageInCell.image = "JSON ARRAY IMAGE LOCATION   "
    //     imageDetailLabel.text = " JSON ARRAY DETAILS    "
     }

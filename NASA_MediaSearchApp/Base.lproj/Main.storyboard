@@ -20,39 +20,50 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o1Y-Nb-VTQ">
-                                    <size key="itemSize" width="154" height="192"/>
+                                    <size key="itemSize" width="160" height="205"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="xMQ-n4-MgJ" userLabel="CollectionViewCell" customClass="CollectionViewCell" customModule="NASA_MediaSearchApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="192"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rVA-vm-RUy">
-                                            <rect key="frame" x="0.0" y="0.0" width="154" height="192"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-um-2uF">
-                                                    <rect key="frame" x="8" y="8" width="138" height="142"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL6-Be-PbF">
-                                                    <rect key="frame" x="0.0" y="168" width="144" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Image Label!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL6-Be-PbF">
+                                                    <rect key="frame" x="0.0" y="184.5" width="160" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="square.and.arrow.up.on.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-um-2uF">
+                                                    <rect key="frame" x="4" y="0.0" width="152" height="182.5"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cL6-Be-PbF" firstAttribute="top" secondItem="WSf-um-2uF" secondAttribute="bottom" constant="2" id="9UJ-VY-m1h"/>
+                                                <constraint firstItem="WSf-um-2uF" firstAttribute="top" secondItem="rVA-vm-RUy" secondAttribute="top" id="HOi-Ct-GMc"/>
+                                                <constraint firstAttribute="trailing" secondItem="cL6-Be-PbF" secondAttribute="trailing" id="Iob-6q-ALp"/>
+                                                <constraint firstItem="cL6-Be-PbF" firstAttribute="leading" secondItem="rVA-vm-RUy" secondAttribute="leading" id="Ljk-kk-RbD"/>
+                                                <constraint firstAttribute="trailing" secondItem="WSf-um-2uF" secondAttribute="trailing" constant="8" id="SnD-Qc-BBk"/>
+                                                <constraint firstAttribute="bottom" secondItem="cL6-Be-PbF" secondAttribute="bottom" id="W9H-Yq-1T2"/>
+                                                <constraint firstItem="WSf-um-2uF" firstAttribute="leading" secondItem="rVA-vm-RUy" secondAttribute="leading" id="kXC-Bp-haF"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="154" height="192"/>
+                                        <size key="customSize" width="160" height="205"/>
                                         <connections>
                                             <outlet property="imageDetailLabel" destination="cL6-Be-PbF" id="QcJ-rG-CpK"/>
                                             <outlet property="imageInCell" destination="WSf-um-2uF" id="B7a-Md-Xni"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="F3t-Q5-ut6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ffU-m9-HpS"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -92,4 +103,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="117" height="128"/>
+    </resources>
 </document>
