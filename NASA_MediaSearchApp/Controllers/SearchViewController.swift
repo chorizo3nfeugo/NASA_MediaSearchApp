@@ -74,6 +74,22 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("User tapped on image!")
+        
+        let imageSelectedView:ImageDetailsViewController = self.storyboard?.instantiateViewController(identifier: "showImageDetailsVC") as! ImageDetailsViewController
+        
+        imageSelectedView.selectedIndex = indexPath.item
+        
+//        imageSelectedView.imageTiteLbl.text = NetworkingService.shared.searchedObject[indexPath.item].title
+//        imageSelectedView.imageDetailsLbl.text = NetworkingService.shared.searchedObject[indexPath.item].description
+        
+        self.navigationController?.pushViewController(imageSelectedView, animated: true)
+        
+        
+    }
+    
+    
     
 }
 

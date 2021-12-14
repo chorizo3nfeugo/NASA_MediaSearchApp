@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23CE25321D091A9F45AF1412 /* Pods_NASA_MediaSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FCD5DFF4828DDEBCB581BD /* Pods_NASA_MediaSearchApp.framework */; };
+		C01697C4276907AD001B4C58 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */; };
 		C01A03742760904B00879E76 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A03732760904B00879E76 /* SearchViewController.swift */; };
 		C01A03762760A13F00879E76 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A03752760A13F00879E76 /* CollectionViewCell.swift */; };
 		C049305C27608D0100C99F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C049305B27608D0100C99F24 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		38609AAA2389209FDF489AAE /* Pods-NASA_MediaSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA_MediaSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-NASA_MediaSearchApp/Pods-NASA_MediaSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
 		93FCD5DFF4828DDEBCB581BD /* Pods_NASA_MediaSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_MediaSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		C01A03732760904B00879E76 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C01A03752760A13F00879E76 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C049305827608D0100C99F24 /* NASA_MediaSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASA_MediaSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 			children = (
 				C01A03732760904B00879E76 /* SearchViewController.swift */,
 				C01A03752760A13F00879E76 /* CollectionViewCell.swift */,
+				C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				C051058C276145C1001BA072 /* NetworkingService.swift in Sources */,
 				C01A03742760904B00879E76 /* SearchViewController.swift in Sources */,
 				C049305C27608D0100C99F24 /* AppDelegate.swift in Sources */,
+				C01697C4276907AD001B4C58 /* ImageDetailsViewController.swift in Sources */,
 				C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */,
 				C01A03762760A13F00879E76 /* CollectionViewCell.swift in Sources */,
 				C049305E27608D0100C99F24 /* SceneDelegate.swift in Sources */,

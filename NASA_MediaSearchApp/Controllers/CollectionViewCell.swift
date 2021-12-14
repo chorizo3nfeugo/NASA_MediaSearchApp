@@ -29,7 +29,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         imageDetailLabel.text = searchedObject[index].title
         
-        let url = "\(searchedObject[index].imageLink)k"
+        let url = "\(searchedObject[index].imageLink)"
        
         AF.request(url).responseImage { response  in
             if let image = response.value {
