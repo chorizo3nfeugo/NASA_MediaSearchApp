@@ -21,13 +21,15 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     
+    var searchedObject = NetworkingService.shared.searchedObject
     
     
-    func setupArrayToCells(){
+    
+    func configureCells(index: Int){
         
-/// To DO :  Need to create a loop to have each cell populate image
+        imageDetailLabel.text = searchedObject[index].title
         
-        let url = "https://images-assets.nasa.gov/image/PIA08789/PIA08789~small.jpg"
+        let url = "\(searchedObject[index].imageLink)k"
        
         AF.request(url).responseImage { response  in
             if let image = response.value {
@@ -35,13 +37,10 @@ class CollectionViewCell: UICollectionViewCell {
                 DispatchQueue.main.async {
                     let radius: CGFloat = 15.0
                     self.imageInCell?.image = image.af.imageRounded(withCornerRadius: radius)
+                    
                 }
-           print("\(image)")
-           
             }
         }
-    //    imageInCell.image = "JSON ARRAY IMAGE LOCATION   "
-   //     imageDetailLabel.text = " JSON ARRAY DETAILS    "
     }
     
 }

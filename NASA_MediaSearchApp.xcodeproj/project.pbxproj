@@ -18,7 +18,7 @@
 		C051058C276145C1001BA072 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051058B276145C1001BA072 /* NetworkingService.swift */; };
 		C0E8CE7627645666004949AA /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE7527645666004949AA /* ResponseHandler.swift */; };
 		C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE77276457E3004949AA /* NetworkingError.swift */; };
-		C0E8CE7A2764587E004949AA /* MediaObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaObjects.swift */; };
+		C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		C051058B276145C1001BA072 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		C0E8CE7527645666004949AA /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		C0E8CE77276457E3004949AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
-		C0E8CE792764587E004949AA /* MediaObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObjects.swift; sourceTree = "<group>"; };
+		C0E8CE792764587E004949AA /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		E77F1A194DF88D897AF53D4E /* Pods-NASA_MediaSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA_MediaSearchApp.release.xcconfig"; path = "Target Support Files/Pods-NASA_MediaSearchApp/Pods-NASA_MediaSearchApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C051058B276145C1001BA072 /* NetworkingService.swift */,
-				C0E8CE792764587E004949AA /* MediaObjects.swift */,
+				C0E8CE792764587E004949AA /* MediaItem.swift */,
 				C0E8CE7527645666004949AA /* ResponseHandler.swift */,
 				C0E8CE77276457E3004949AA /* NetworkingError.swift */,
 			);
@@ -244,7 +244,7 @@
 				C01A03762760A13F00879E76 /* CollectionViewCell.swift in Sources */,
 				C049305E27608D0100C99F24 /* SceneDelegate.swift in Sources */,
 				C0E8CE7627645666004949AA /* ResponseHandler.swift in Sources */,
-				C0E8CE7A2764587E004949AA /* MediaObjects.swift in Sources */,
+				C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

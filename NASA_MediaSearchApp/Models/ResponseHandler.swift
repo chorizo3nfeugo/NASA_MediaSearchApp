@@ -12,14 +12,16 @@ import SwiftyJSON
 
 struct ResponseHandle {
     
+    let mediaData: [MediaItem]
+    
  // Better error handling so we throw
-    init(json: JSON) throws {
-        
-        guard let results = json["results"] as? [JSON] else { throw NetworkingError.networkIssue }
-        
-        
+//    init(json: JSON) throws {
+//
+//        guard let results = json["results"] as? [JSON] else { throw NetworkingError.networkIssue }
+//    //    self.mediaData = mediaData
+//
     }
     
     
     
-}
+

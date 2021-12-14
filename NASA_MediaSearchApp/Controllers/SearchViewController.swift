@@ -18,15 +18,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UICollect
     
     
     
-    var nasaList = [String:String]()
-    
-  //  let url = "https://images-api.nasa.gov/search?q=mars&media_type=image"
-    
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        NetworkingService.shared.getData {
+            collectionImageView.reloadData()
+                    }
         
         collectionImageView.dataSource = self
         collectionImageView.delegate = self
@@ -38,26 +36,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UICollect
         searchController.searchResultsUpdater = self
         
 
-//    AF.request("https://images-assets.nasa.gov/image/PIA01124/collection.json").responseJSON { response in
-//
-//        switch response.result {
-//
-//        case .success(_):
-//            let jsondata = response.value as! [String]?
-//            self.nasaList = jsondata!
-//
-//        case .failure(let error):
-//            print("Error Occured \(error)")
-//
-//        }
-//
-//        print(self.nasaList)
-//    }
-        
-        
-        
-        
-        
     }
     
     
@@ -70,11 +48,12 @@ let searchController = UISearchController()
     
             return
         }
-        print(text)
         
-        NetworkingService.shared.getData {
-            print("Got Response")
-            }
+//MARK: - TO DO! : Implement Search bar to link search translation!
+        
+        print(text)
+        collectionImageView.reloadData()
+
        }
     
 }
@@ -82,15 +61,13 @@ let searchController = UISearchController()
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 10
+        return NetworkingService.shared.searchedObject.count 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
-        cell.setupArrayToCells()
-        
+        cell.configureCells(index: indexPath.item)
         
     return cell
    
