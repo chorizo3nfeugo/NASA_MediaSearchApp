@@ -50,7 +50,7 @@ class ImageDetailsViewController: UIViewController {
    
     func configImageDetailVC(index: Int){
     
-        let selectedItem = NetworkingService.shared.searchedObject
+        let selectedItem = SearchViewController.shared.nasaItems
         let dateCreated = convertDateFormat(inputDate: selectedItem[index].dateCreated)
         
         dateCreatedLbl.text = "Image Created on \(dateCreated)"
@@ -58,7 +58,7 @@ class ImageDetailsViewController: UIViewController {
         imageDetailsLbl.text = selectedItem[index].description
        
         
-        let url = "\(NetworkingService.shared.searchedObject[index].imageLink)"
+        let url = "\(selectedItem[index].imageLink)"
           
            AF.request(url).responseImage { response  in
                if let image = response.value {

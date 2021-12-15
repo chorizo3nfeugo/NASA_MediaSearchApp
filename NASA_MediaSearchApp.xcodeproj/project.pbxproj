@@ -17,6 +17,7 @@
 		C049306527608D0600C99F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C049306427608D0600C99F24 /* Assets.xcassets */; };
 		C049306827608D0600C99F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C049306627608D0600C99F24 /* LaunchScreen.storyboard */; };
 		C051058C276145C1001BA072 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051058B276145C1001BA072 /* NetworkingService.swift */; };
+		C0C8D7C1276A2D08000704E7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D7C0276A2D08000704E7 /* RootViewController.swift */; };
 		C0E8CE7627645666004949AA /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE7527645666004949AA /* ResponseHandler.swift */; };
 		C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE77276457E3004949AA /* NetworkingError.swift */; };
 		C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaItem.swift */; };
@@ -36,6 +37,7 @@
 		C049306727608D0600C99F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C049306927608D0600C99F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C051058B276145C1001BA072 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		C0C8D7C0276A2D08000704E7 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C0E8CE7527645666004949AA /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		C0E8CE77276457E3004949AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		C0E8CE792764587E004949AA /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
@@ -74,9 +76,10 @@
 		C01A03722760901700879E76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C0C8D7C0276A2D08000704E7 /* RootViewController.swift */,
 				C01A03732760904B00879E76 /* SearchViewController.swift */,
-				C01A03752760A13F00879E76 /* CollectionViewCell.swift */,
 				C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */,
+				C01A03752760A13F00879E76 /* CollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,10 +120,10 @@
 		C051058A276145AD001BA072 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C051058B276145C1001BA072 /* NetworkingService.swift */,
+				C0E8CE77276457E3004949AA /* NetworkingError.swift */,
 				C0E8CE792764587E004949AA /* MediaItem.swift */,
 				C0E8CE7527645666004949AA /* ResponseHandler.swift */,
-				C0E8CE77276457E3004949AA /* NetworkingError.swift */,
+				C051058B276145C1001BA072 /* NetworkingService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C8D7C1276A2D08000704E7 /* RootViewController.swift in Sources */,
 				C051058C276145C1001BA072 /* NetworkingService.swift in Sources */,
 				C01A03742760904B00879E76 /* SearchViewController.swift in Sources */,
 				C049305C27608D0100C99F24 /* AppDelegate.swift in Sources */,

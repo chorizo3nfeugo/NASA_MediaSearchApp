@@ -3,23 +3,27 @@ PODS:
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
   - SwiftyJSON (4.3.0)
+  - TransitionButton (0.5.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - AlamofireImage (~> 4.1)
   - SwiftyJSON (~> 4.0)
+  - TransitionButton
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
     - SwiftyJSON
+    - TransitionButton
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: abfc99b376ae16c001648ea23f00ac09cfa0a6b8
+PODFILE CHECKSUM: 0b806878d95f81e65637d38dab33907c0a754573
 
 COCOAPODS: 1.11.2

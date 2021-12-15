@@ -12,16 +12,16 @@ import SwiftyJSON
 
 struct ResponseHandle {
     
-    let mediaData: [MediaItem]
+    let pulledItems: [MediaItem]
     
- // Better error handling so we throw
-//    init(json: JSON) throws {
-//
-//        guard let results = json["results"] as? [JSON] else { throw NetworkingError.networkIssue }
-//    //    self.mediaData = mediaData
-//
+ 
+    init(json: JSON) throws {
+        
+// Root response of API is called "collection"
+        guard let collection = json["collection"].arrayObject else { throw NetworkingError.networkIssue }
+        let item = collection.map{ MediaItem(json: $0 as! JSON)}.compactMap{ $0 }
+        self.pulledItems = item
     }
-    
-    
-    
+}
+
 
