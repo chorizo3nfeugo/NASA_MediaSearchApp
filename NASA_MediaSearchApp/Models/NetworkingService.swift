@@ -16,8 +16,8 @@ class NetworkingService {
     
     static let shared = NetworkingService()
     
+   
     public var searchedObject = [MediaItem]()
-    
     
     private init() {}
   
@@ -31,18 +31,29 @@ class NetworkingService {
       }
 
     
- 
+    
+                    
+    let urlString  = SearchViewController.shared.fromUserInputValue
+
+
+  
+    
     
     func getData(completion: ()-> Void) {
         
-        AF.request("https://images-api.nasa.gov/search?q=mars&media_type=image", method: .get).responseJSON { (response) in
+        let inputQueryString = urlString
+        let urlEncoded = inputQueryString.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        
+        let url = "https://images-api.nasa.gov/search?q=\(urlEncoded!)&media_type=image"
+        
+        AF.request(url, method: .get).responseJSON { (response) in
             switch response.result {
             case .success:
             
                 do {
                 let data = try JSON(data: response.data!)
 //     let mediaObject = self.parseJSON(json: data)
-//      completion(mediaObject)
+
         let resultArray = data["collection"]["items"].arrayValue
 
         for item in resultArray {
@@ -53,8 +64,11 @@ class NetworkingService {
             let imageDate = item["data"][0]["date_created"].stringValue
 
             self.searchedObject.append(MediaItem(title: title, description: description, imageLink: imageLink, dateCreated: imageDate))
-
+            
+//              print(mediaObject
+            
             print(self.searchedObject)
+            
 
                 }
             
@@ -76,7 +90,8 @@ class NetworkingService {
     
 /// Closing Class bracket
         }
-        
+
+
     
 
         

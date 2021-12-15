@@ -14,7 +14,7 @@ class ImageDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Selected Image"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,18 +32,31 @@ class ImageDetailsViewController: UIViewController {
     @IBOutlet weak var dateCreatedLbl: UILabel!
     
     
-    func dateStringConvert(date: Date) -> String {
-        return("")
+    func convertDateFormat(inputDate: String) -> String {
+        
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+         let oldDate = dateFormatter.date(from: inputDate)
+
+         let convertDateFormatter = DateFormatter()
+         convertDateFormatter.dateFormat = "MMM dd yyyy h:mm a"
+
+         return convertDateFormatter.string(from: oldDate!)
     }
+  
+   
     
-    
+   
     func configImageDetailVC(index: Int){
     
         let selectedItem = NetworkingService.shared.searchedObject
+        let dateCreated = convertDateFormat(inputDate: selectedItem[index].dateCreated)
         
+        dateCreatedLbl.text = "Image Created on \(dateCreated)"
         imageTiteLbl.text = selectedItem[index].title
         imageDetailsLbl.text = selectedItem[index].description
-        dateCreatedLbl.text = selectedItem[index].dateCreated
+       
         
         let url = "\(NetworkingService.shared.searchedObject[index].imageLink)"
           

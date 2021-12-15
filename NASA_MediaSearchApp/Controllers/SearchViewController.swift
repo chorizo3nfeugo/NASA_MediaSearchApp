@@ -15,48 +15,58 @@ import AlamofireImage
 class SearchViewController: UIViewController, UISearchResultsUpdating, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionImageView: UICollectionView!
+
     
+    static let shared = SearchViewController()
     
+
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ // ===============
         NetworkingService.shared.getData {
-            collectionImageView.reloadData()
+        
+            print("Get data! Via viewDownload!")
                     }
         
         collectionImageView.dataSource = self
         collectionImageView.delegate = self
 
-            title = "Search NASA Media"
+        self.title = "Search NASA Media"
         
         navigationItem.searchController = searchController
-        
         searchController.searchResultsUpdater = self
         
 
     }
     
-    
+
+    public var fromUserInputValue = "Nova"
+
     
 // MARK: - Search Bar
 let searchController = UISearchController()
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text  else {
-    
+        
             return
         }
         
 //MARK: - TO DO! : Implement Search bar to link search translation!
         
+        fromUserInputValue = text
         print(text)
+        
+      //   NetworkingService.shared.getData()
         collectionImageView.reloadData()
 
        }
     
 }
+
+
 
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -92,5 +102,6 @@ extension SearchViewController: UICollectionViewDataSource {
     
     
 }
+
 
 
