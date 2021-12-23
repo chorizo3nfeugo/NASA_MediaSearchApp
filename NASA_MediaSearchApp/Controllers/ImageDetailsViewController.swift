@@ -46,11 +46,11 @@ class ImageDetailsViewController: UIViewController {
     }
   
    
-    
+// Mark: - Potential Optionals from MediaItemObjects in dateCreated and URL here
    
     func configImageDetailVC(index: Int){
     
-        let selectedItem = SearchViewController.shared.nasaItems
+        let selectedItem = NetworkingService.shared.parsedMediaObjects
         let dateCreated = convertDateFormat(inputDate: selectedItem[index].dateCreated)
         
         dateCreatedLbl.text = "Image Created on \(dateCreated)"

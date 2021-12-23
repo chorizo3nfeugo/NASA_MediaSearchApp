@@ -12,101 +12,98 @@ import AlamofireImage
 import TransitionButton
 
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate,UISearchResultsUpdating {
+class SearchViewController: UIViewController, UICollectionViewDelegate, UISearchBarDelegate {
+    
+    
   
     
     @IBOutlet weak var collectionImageView: UICollectionView!
+    
+
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
 
     static let shared = SearchViewController()
-    
-    var nasaItems = [MediaItem]()
-    
+   
+
+ 
+    public var nasaItems = [MediaItem]()
 
     
-    
-    
-    // MARK: - ViewDidLoad
+// MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-//
-//        NetworkingService.shared.getData { response in
-//            print(response)
-//            self.nasaItems = response.pulledItems
-//        collectionImageView.reloadData()
-//        }
-        
+        searchBar.delegate = self
+        self.title = "Search NASA Media"
+  
+
                 collectionImageView.dataSource = self
                 collectionImageView.delegate = self
-                
         
-//    collectionImageView.dataSource = self
-//    collectionImageView.delegate = self
-//    collectionImageView.reloadData()
-        self.title = "Search NASA Media"
-        
-       navigationItem.searchController = searchController
-       searchController.searchResultsUpdater = self
-        
-
     }
     
-    // MARK: - Search Bar
-    let searchController = UISearchController()
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionImageView.reloadData()
+    }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text  else {
-
-            return
-        }
-
-   //     NetworkingService.shared.getData2()
-        
-                NetworkingService.shared.getData { response in
-                    print(response)
-                    self.nasaItems = response.pulledItems
-                }
-        print(text)
-
-        collectionImageView.reloadData()
-
-       }
     
-
-  //  public var fromUserInputValue = "Solar Flares"
-
-       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return nasaItems.count
-        }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-             let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "CollectionViewCell", for: indexPath) as! CollectionViewCell
-            
-            cell.configureCells(index: indexPath.item)
-            
-        return cell
+        searchBar.resignFirstResponder()
+        
        
+        if let text = searchBar.text {
+          
+           NetworkingService.shared.getData(query: text)
+            
+            
+           
         }
         
+                viewDidLoad()
+                viewWillAppear(true)
+        print(NetworkingService.shared.parsedMediaObjects.count)
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            print("User tapped on image!")
-            
-            let imageSelectedView:ImageDetailsViewController = self.storyboard?.instantiateViewController(identifier: "showImageDetailsVC") as! ImageDetailsViewController
-            
-            imageSelectedView.selectedIndex = indexPath.item
-            
-    //        imageSelectedView.imageTiteLbl.text = NetworkingService.shared.searchedObject[indexPath.item].title
-    //        imageSelectedView.imageDetailsLbl.text = NetworkingService.shared.searchedObject[indexPath.item].description
-            
-            self.navigationController?.pushViewController(imageSelectedView, animated: true)
-            
-            
-        }
-
+    }
+  
+    
+    
 }
 
 
+extension SearchViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return NetworkingService.shared.parsedMediaObjects.count
+    }
+          
+          func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+               let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "CollectionViewCell", for: indexPath) as! CollectionViewCell
+              
+              cell.configureCells(index: indexPath.item)
+              
+          return cell
+         
+          }
+          
+          
+          func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+              print("User tapped on image!")
+              
+              let imageSelectedView:ImageDetailsViewController = self.storyboard?.instantiateViewController(identifier: "showImageDetailsVC") as! ImageDetailsViewController
+              
+              imageSelectedView.selectedIndex = indexPath.item
+              
+   
+              self.navigationController?.pushViewController(imageSelectedView, animated: true)
+              
+              
+          }
+    
+}
 
 
 

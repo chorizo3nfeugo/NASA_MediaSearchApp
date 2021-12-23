@@ -12,9 +12,11 @@ import TransitionButton
 class RootViewController: UIViewController, UITextFieldDelegate {
     
     let searchBtn = TransitionButton(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
-    let textField =  UITextField(frame: CGRect(x: 35, y: 335, width: 300, height: 40))
+    var textField =  UITextField(frame: CGRect(x: 35, y: 335, width: 300, height: 40))
     
     override func viewDidLoad() {
+        
+        
         title = "Search NASA Images!"
         
         textField.placeholder = "Type your search here!"
@@ -47,28 +49,44 @@ class RootViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func searchBtnTap(){
+        
+       
+        
         self.textField.isHidden = true
+        
+   //  NetworkingService.shared.urlString = self.textField.text ?? "Solar Flare"
+        
+       
+        
+        performSegue(withIdentifier: "changeToSearchVC", sender: self)
+        
 // MARK: - Pass in textField.text to URL link variable path.
-        
-//        self.textField.text = NetworkingService.shared.fromUserInputValue
-//                NetworkingService.shared.getData {
-//                    print("UIText Passed to userInputValue for Network Search")
-//                }
-        
+ 
         searchBtn.startAnimation()
+        
+       
         
         DispatchQueue.main.asyncAfter(deadline: .now()+4) {
             
-            
             self.searchBtn.stopAnimation(animationStyle: .expand, revertAfterDelay:1)
+            
             
             let vc = SearchViewController()
             self.present(vc,animated: true)
             
+//            NetworkingService.shared.getData {response in
+//                           print(response)
+//                   }
     // See where to put hide text field here before
             //  self.textField.isHidden = false
           
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewC = segue.destination as! SearchViewController
+        viewC.title = self.textField.text
     }
     
 }

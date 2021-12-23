@@ -12,5 +12,6 @@ import Foundation
 enum NetworkingError: Error {
     
     case networkIssue
+    case urllLink
     
 }
