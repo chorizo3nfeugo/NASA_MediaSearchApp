@@ -17,13 +17,13 @@ class NetworkingService {
     public init() {}
 
 
-   public var parsedMediaObjects: [MediaItem] = []
+    public var parsedMediaObjects = [MediaItem]()
     
 
-
+//  func getData(query: String, completion: @escaping (Result<[MediaItem], Error>) -> Void)
 
 // MARK: -                                                                                Get Data!
-    func getData(query: String){
+    func getData(query: String, completion: @escaping ([MediaItem]) -> Void) {
 
         let urlString = query
         
@@ -36,28 +36,42 @@ class NetworkingService {
            switch response.result {
             case .success(let value):
                 
+                self.parsedMediaObjects = []
+                
+                let dispatchTime = DispatchTime.now() + 4
+                
+                DispatchQueue.global(qos: .background).asyncAfter(deadline: dispatchTime) {
+                        
+                    
+                                    let json = JSON(value)
+                                   
+                                    let collection = json["collection"]["items"].arrayValue
+                                       
+                                       for item in collection {
+                                       
+                                                           let title = item["data"][0]["title"].stringValue
+                                                           let  description = item["data"][0]["description"].stringValue
+                                                           let imageLink =  item["links"][0]["href"].stringValue
+                                                           let dateCreated =  item["data"][0]["date_created"].stringValue
+                                       
+                                                           self.parsedMediaObjects.append(MediaItem(title: title, description: description, imageLink: imageLink, dateCreated: dateCreated))
+                                        print("Here be the RAW JSON Items: \(self.parsedMediaObjects.count)")
+                                           
+                                                       }
+                    DispatchQueue.main.async {
+                    completion(self.parsedMediaObjects)
+            }
+                    
+                }
              //   self.parsedMediaObjects = []
                 
-                let json = JSON(value)
-                
-                 let collection = json["collection"]["items"].arrayValue
-                    
-                    for item in collection {
-                    
-                                        let title = item["data"][0]["title"].stringValue
-                                        let  description = item["data"][0]["description"].stringValue
-                                        let imageLink =  item["links"][0]["href"].stringValue
-                                        let dateCreated =  item["data"][0]["date_created"].stringValue
-                    
-                                        self.parsedMediaObjects.append(MediaItem(title: title, description: description, imageLink: imageLink, dateCreated: dateCreated))
-                     print("Here be the RAW JSON Items: \(self.parsedMediaObjects.count)")
-                     
-                                    }
-              
+               
+            
              //   print("Here be a RAW JSON: \(item)")
             
             case .failure(let error):
                 print("Here is an NASA-JSON Error!: \(error)")
+                completion(self.parsedMediaObjects)
             }
             
         }

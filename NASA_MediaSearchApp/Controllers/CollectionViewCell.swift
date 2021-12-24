@@ -27,14 +27,14 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageDetailLabel: UILabel!
     
   //  var selectedItem = NetworkingService.shared.searchedObject
-    var selectedItem = NetworkingService.shared.parsedMediaObjects
+  //  public var selectedItem = SearchViewController.shared.nasaItems
 
-    func configureCells(index: Int){
-        
-        imageDetailLabel.text = selectedItem[index].title
-        
-        let url = "\(selectedItem[index].imageLink)"
+    func configureCells(imageName:String, url: String){
        
+   
+        
+        imageDetailLabel.text = imageName
+        
         AF.request(url).responseImage { response  in
             if let image = response.value {
                 

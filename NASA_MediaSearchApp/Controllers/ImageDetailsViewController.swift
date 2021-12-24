@@ -20,7 +20,7 @@ class ImageDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configImageDetailVC(index: selectedIndex!)
+     //   configImageDetailVC(index: selectedIndex!)
         
     }
     
@@ -46,20 +46,23 @@ class ImageDetailsViewController: UIViewController {
     }
   
    
-// Mark: - Potential Optionals from MediaItemObjects in dateCreated and URL here
-   
-    func configImageDetailVC(index: Int){
+
+
+//MARK:  - To Do! : Need to look at function here to find out why finding nil when unwrapping optionals in this function
     
-        let selectedItem = NetworkingService.shared.parsedMediaObjects
-        let dateCreated = convertDateFormat(inputDate: selectedItem[index].dateCreated)
+   public func configImageDetailVC(imageTitle: String , imageDetail: String, url: String, imageDate: String) {
+    
+      
         
+        imageTiteLbl.text = imageTitle
+         imageDetailsLbl.text = imageDetail
+    
+        let dateCreated = convertDateFormat(inputDate: imageDate)
         dateCreatedLbl.text = "Image Created on \(dateCreated)"
-        imageTiteLbl.text = selectedItem[index].title
-        imageDetailsLbl.text = selectedItem[index].description
+        
+    
        
         
-        let url = "\(selectedItem[index].imageLink)"
-          
            AF.request(url).responseImage { response  in
                if let image = response.value {
                    

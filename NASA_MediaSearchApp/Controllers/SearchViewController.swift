@@ -56,20 +56,24 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         
        
         if let text = searchBar.text {
-          
-           NetworkingService.shared.getData(query: text)
             
-            
-           
+            NetworkingService.shared.getData(query: text) { (mediaItemData) in
+                self.nasaItems = mediaItemData
+                
+                self.collectionImageView.reloadData()
+                
+                print("Here are items stored in nasaItems! =   \(self.nasaItems)")
+                
+                print("After nasaItems assigned! count is \(mediaItemData.count)")
+                
+               // self.collectionImageView.reloadData()
+            }
+            print("Nasa items count is still \(self.nasaItems.count)")
+      // self.collectionImageView.reloadData()
         }
-        
-                viewDidLoad()
-                viewWillAppear(true)
-        print(NetworkingService.shared.parsedMediaObjects.count)
-        
-    }
   
-    
+        //  self.collectionImageView.reloadData()
+    }
     
 }
 
@@ -77,13 +81,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return NetworkingService.shared.parsedMediaObjects.count
+        return nasaItems.count
     }
           
           func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "CollectionViewCell", for: indexPath) as! CollectionViewCell
               
-              cell.configureCells(index: indexPath.item)
+            let imageName = nasaItems[indexPath.item].title
+            let imageLink = nasaItems[indexPath.item].imageLink
+            
+            cell.configureCells(imageName: imageName, url: imageLink)
               
           return cell
          
@@ -95,8 +102,15 @@ extension SearchViewController: UICollectionViewDataSource {
               
               let imageSelectedView:ImageDetailsViewController = self.storyboard?.instantiateViewController(identifier: "showImageDetailsVC") as! ImageDetailsViewController
               
-              imageSelectedView.selectedIndex = indexPath.item
+        //      imageSelectedView.selectedIndex = indexPath.item
               
+            let imageName = nasaItems[indexPath.item].title
+            let imageLink = nasaItems[indexPath.item].imageLink
+            let imageDetails = nasaItems[indexPath.item].description
+            let imageDate = nasaItems[indexPath.item].dateCreated
+            
+            imageSelectedView.configImageDetailVC(imageTitle:imageName , imageDetail: imageDetails, url: imageLink, imageDate: imageDate)
+            
    
               self.navigationController?.pushViewController(imageSelectedView, animated: true)
               
