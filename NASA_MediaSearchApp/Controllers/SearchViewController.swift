@@ -66,13 +66,12 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 
                 print("After nasaItems assigned! count is \(mediaItemData.count)")
                 
-               // self.collectionImageView.reloadData()
+              
             }
             print("Nasa items count is still \(self.nasaItems.count)")
-      // self.collectionImageView.reloadData()
+    
         }
-  
-        //  self.collectionImageView.reloadData()
+
     }
     
 }
@@ -87,10 +86,10 @@ extension SearchViewController: UICollectionViewDataSource {
           func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "CollectionViewCell", for: indexPath) as! CollectionViewCell
               
-            let imageName = nasaItems[indexPath.item].title
-            let imageLink = nasaItems[indexPath.item].imageLink
-            
-            cell.configureCells(imageName: imageName, url: imageLink)
+            if let imageName = nasaItems[indexPath.item].title, let imageLink = nasaItems[indexPath.item].imageLink {
+                
+                cell.configureCells(imageName: imageName, url: imageLink)
+            }
               
           return cell
          
@@ -98,18 +97,13 @@ extension SearchViewController: UICollectionViewDataSource {
           
           
           func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-              print("User tapped on image!")
+            
               
               let imageSelectedView:ImageDetailsViewController = self.storyboard?.instantiateViewController(identifier: "showImageDetailsVC") as! ImageDetailsViewController
               
-        //      imageSelectedView.selectedIndex = indexPath.item
-              
-            let imageName = nasaItems[indexPath.item].title
-            let imageLink = nasaItems[indexPath.item].imageLink
-            let imageDetails = nasaItems[indexPath.item].description
-            let imageDate = nasaItems[indexPath.item].dateCreated
+// assign nasaItem to selectedImage
             
-            imageSelectedView.configImageDetailVC(imageTitle:imageName , imageDetail: imageDetails, url: imageLink, imageDate: imageDate)
+            imageSelectedView.selectedItem = nasaItems[indexPath.item]
             
    
               self.navigationController?.pushViewController(imageSelectedView, animated: true)

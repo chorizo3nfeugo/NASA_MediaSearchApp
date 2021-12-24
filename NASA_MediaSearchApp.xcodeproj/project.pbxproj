@@ -76,7 +76,6 @@
 		C01A03722760901700879E76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8D7C0276A2D08000704E7 /* RootViewController.swift */,
 				C01A03732760904B00879E76 /* SearchViewController.swift */,
 				C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */,
 				C01A03752760A13F00879E76 /* CollectionViewCell.swift */,
@@ -119,6 +118,7 @@
 				C051058A276145AD001BA072 /* Models */,
 				C01A03722760901700879E76 /* Controllers */,
 				C049305B27608D0100C99F24 /* AppDelegate.swift */,
+				C0C8D7C0276A2D08000704E7 /* RootViewController.swift */,
 				C049305D27608D0100C99F24 /* SceneDelegate.swift */,
 				C049306127608D0200C99F24 /* Main.storyboard */,
 				C049306427608D0600C99F24 /* Assets.xcassets */,

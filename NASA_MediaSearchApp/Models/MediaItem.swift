@@ -14,10 +14,18 @@ import SwiftyJSON
 
 struct MediaItem {
    
-    var title:String
-    var description:String
-    var imageLink:String
-    var dateCreated:String
+    var title:String?
+    var description:String?
+    var imageLink:String?
+    var dateCreated:String?
+    
+    
+    init(title: String , description: String, imageLink: String, dateCreated:String){
+        self.title = title
+        self.description = description
+        self.imageLink = imageLink
+        self.dateCreated = dateCreated
+    }
     
 }
     
