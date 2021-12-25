@@ -39,48 +39,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30B37017-1243-4BDD-B0EF-269B84074DB0"
+            uuid = "F2DFE7B8-EE48-461D-A694-B22D72DC27DF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NASA_MediaSearchApp/Networking/NetworkingService.swift"
+            filePath = "NASA_MediaSearchApp/Controllers/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "getData(query:completion:)"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "collectionView(_:willDisplay:forItemAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F2DFE7B8-EE48-461D-A694-B22D72DC27DF - f3e7614e28a7589e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NASA_MediaSearchApp.SearchViewController.collectionView(_: __C.UICollectionView, willDisplay: __C.UICollectionViewCell, forItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "NASA_MediaSearchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeus/Developer/NASA_MediaSearchApp/NASA_MediaSearchApp/Controllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "710">
+               </Location>
+               <Location
+                  uuid = "F2DFE7B8-EE48-461D-A694-B22D72DC27DF - 6863164af3f13c19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;NASA_MediaSearchApp.MediaItem&gt;) -&gt; () in NASA_MediaSearchApp.SearchViewController.collectionView(_: __C.UICollectionView, willDisplay: __C.UICollectionViewCell, forItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "NASA_MediaSearchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zeus/Developer/NASA_MediaSearchApp/NASA_MediaSearchApp/Controllers/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "190">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6FDECB5-513F-4D3A-908A-8D39085FFCC5"
+            uuid = "B014F4D9-1D5F-422A-ABA9-B0B80ADAF2E5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NASA_MediaSearchApp/Controllers/CollectionViewCell.swift"
+            filePath = "NASA_MediaSearchApp/Controllers/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "configureCells(imageName:url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D9A7891-B207-4DEC-99B9-DE21D27DCD6A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NASA_MediaSearchApp/Controllers/ImageDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "convertDateFormat(inputDate:)"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "collectionView(_:willDisplay:forItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

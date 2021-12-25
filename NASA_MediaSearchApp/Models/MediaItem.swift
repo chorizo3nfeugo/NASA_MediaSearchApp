@@ -28,6 +28,16 @@ struct MediaItem {
     }
     
 }
+
+struct MediaItemLinks {
+    var moreLinks:String?
+    
+    init(moreLinks: String){
+        self.moreLinks = moreLinks
+    }
+    
+    
+}
     
 
 

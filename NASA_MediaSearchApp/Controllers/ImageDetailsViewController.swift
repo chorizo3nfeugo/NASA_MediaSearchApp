@@ -21,6 +21,7 @@ class ImageDetailsViewController: UIViewController {
         
         configureImageDetails(mediaItem: selectedItem)
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

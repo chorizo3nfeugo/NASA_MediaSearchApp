@@ -46,7 +46,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.collectionImageView.reloadData()
+    //    self.collectionImageView.reloadData()
     }
     
     
@@ -60,8 +60,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
             NetworkingService.shared.getData(query: text) { (mediaItemData) in
                 self.nasaItems = mediaItemData
                 
+                 DispatchQueue.main.async {
                 self.collectionImageView.reloadData()
-                
+                }
                 print("Here are items stored in nasaItems! =   \(self.nasaItems)")
                 
                 print("After nasaItems assigned! count is \(mediaItemData.count)")
@@ -77,7 +78,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 }
 
 
-extension SearchViewController: UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return nasaItems.count
@@ -105,11 +106,45 @@ extension SearchViewController: UICollectionViewDataSource {
             
             imageSelectedView.selectedItem = nasaItems[indexPath.item]
             
-   
+            print(nasaItems[indexPath.item])
+         
+            
               self.navigationController?.pushViewController(imageSelectedView, animated: true)
               
               
           }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      
+        if indexPath.row == nasaItems.count - 1    {  //numberofitem count
+            
+                print("Will go fetch more data here!!")
+
+            guard !NetworkingService.shared.isPaginating else {
+                print("We are already fetcihging more data!")
+                    return
+            }
+
+                   NetworkingService.shared.fetchMorePages(pagination: true) { [weak self] results in
+                                     
+                                 self?.nasaItems.append(contentsOf: results)
+                                 DispatchQueue.main.async {
+                                     self?.collectionImageView.reloadData()
+                                     }
+                                     
+                                     }
+                }
+        print("You are scrollling near \(nasaItems[indexPath.row].title!)")
+         
+    }
+
+    
+ 
+ 
+//    private func createSpinnerFooter() -> UIView {
+//        let footerView = UIView(fre)
+//    }
+   
     
 }
 
