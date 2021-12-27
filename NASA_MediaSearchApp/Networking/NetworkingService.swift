@@ -16,22 +16,18 @@ class NetworkingService {
     static let shared = NetworkingService()
     public init() {}
 
-
     public var parsedMediaObjects = [MediaItem]()
     
     var nextURLPage:String = ""
     
-
-// MARK: -                                                                                Get Data!
+    
+// MARK: -                                                              Get DATA func
     func getData(query: String, completion: @escaping ([MediaItem]) -> Void) {
 
         let urlString = query
-        
         let urlEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
-        
-        
           let url = "https://images-api.nasa.gov/search?q=\(urlEncoded!)&media_type=image"
-  //      self.nextURLPage = url
+
         AF.request(url, method: .get).responseJSON { response in
 
            switch response.result {
@@ -44,12 +40,9 @@ class NetworkingService {
                 DispatchQueue.global(qos: .background).asyncAfter(deadline: dispatchTime) {
                         
                     
-                                    let json = JSON(value)
-                                     
-                                    let collection = json["collection"]["items"].arrayValue
+                    let json = JSON(value)
+                    let collection = json["collection"]["items"].arrayValue
                     
-                   
-                                       
                                        for item in collection {
                                        
                                                            let title = item["data"][0]["title"].stringValue
@@ -59,53 +52,43 @@ class NetworkingService {
                                        
                                                            self.parsedMediaObjects.append(MediaItem(title: title, description: description, imageLink: imageLink, dateCreated: dateCreated))
                                         print("Here be the RAW JSON Items: \(self.parsedMediaObjects.count)")
-                                           
-                                                       }
-                    
+                                        }
                     self.nextURLPage = json["collection"]["links"][0]["href"].stringValue
-                    
                     DispatchQueue.main.async {
-                       
                     completion(self.parsedMediaObjects)
-            }
-                    
-                    
+                    }
                 }
-           
-            case .failure(let error):
+           case .failure(let error):
                 print("Here is an NASA-JSON Error!: \(error)")
                 completion(self.parsedMediaObjects)
-            }
-            
         }
-        
     }
+        
+}
 
-     var isPaginating = false
     
-    func fetchMorePages(pagination: Bool, completion: @escaping ([MediaItem]) -> Void) {
+    
+// MARK: -                                                              Get More DATA via Pagination
+    
+var isPaginating = false
+func fetchMorePages(pagination: Bool, completion: @escaping ([MediaItem]) -> Void) {
     
         if pagination {
             isPaginating = true
         }
             
-        
         AF.request(nextURLPage, method: .get).responseJSON { response in
 
-            
-            
                  switch response.result {
                   case .success(let value):
                       
-                      let dispatchTime = DispatchTime.now() + 4
+                    let dispatchTime = DispatchTime.now() + (pagination ? 4 : 3)
                       
-                      DispatchQueue.global(qos: .background).asyncAfter(deadline: dispatchTime) {
+                      DispatchQueue.global(qos: .background).asyncAfter(deadline: dispatchTime, execute: {
                               
-                          
                                           let json = JSON(value)
-                        
                                         self.nextURLPage = json["collection"]["links"][0]["href"].stringValue
-                        
+    
                                         let collection = json["collection"]["items"].arrayValue
                                              
                                              for item in collection {
@@ -124,31 +107,31 @@ class NetworkingService {
                           completion(self.parsedMediaObjects)
                         }
                      
-                        
-                      }
-                                        if pagination {
-                                             self.isPaginating = false
-                                         }
-                      
-                 
+                      })
+                    
+                        if pagination  {
+                            self.isPaginating = false
+                        }
                   case .failure(let error):
-                      print("Here is an NASA-JSON Error!: \(error)")
-                      completion(self.parsedMediaObjects)
+                   
+                    if pagination {
+                        self.isPaginating = false
+                    }
+                    
+                    print("Here is an JSON Error!: \(error)")
+                        
+                   
+                    completion(self.parsedMediaObjects)
+                    
                   }
-                  
-              }
-        
-        
-//
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute:{
-//            let data = MediaItem
-//            completion(.success(pagination ? newDat))
-//        }   )
+        }
+}
     
-    }
-    
-/// Closing Class bracket
 
+    
+    
+  
+    
 }
     
 

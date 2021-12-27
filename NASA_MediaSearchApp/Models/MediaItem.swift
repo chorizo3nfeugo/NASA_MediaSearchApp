@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 
-struct MediaItem {
+class MediaItem {
    
     var title:String?
     var description:String?
@@ -29,16 +29,6 @@ struct MediaItem {
     
 }
 
-struct MediaItemLinks {
-    var moreLinks:String?
-    
-    init(moreLinks: String){
-        self.moreLinks = moreLinks
-    }
-    
-    
-}
-    
 
 
 

@@ -12,24 +12,20 @@ import AlamofireImage
 
 class ImageDetailsViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.title = "Selected Image"
-        
-        
-// Call function to pupulate UIView here and use values from UIcollection nasaItems[indexPath]
-        
+                
         configureImageDetails(mediaItem: selectedItem)
         
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
     
+   
+
     public var selectedItem = MediaItem(title: "Title", description: "Description", imageLink: "htps://", dateCreated: "Date!")
     
     
@@ -37,6 +33,7 @@ class ImageDetailsViewController: UIViewController {
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var imageDetailsLbl: UITextView!
     @IBOutlet weak var dateCreatedLbl: UILabel!
+    
     
     
     
@@ -54,9 +51,10 @@ class ImageDetailsViewController: UIViewController {
     }
   
     
-//MARK:  - To Do = DONE!  Need to look at function here to find out why finding nil when unwrapping optionals in this function. Passing in data via nasaItem > selectedItem > configImageDetails
     
-    public func configureImageDetails(mediaItem: MediaItem) {
+//MARK:  -              Configs slected image into View
+    
+     func configureImageDetails(mediaItem: MediaItem) {
        
         imageTiteLbl.text = mediaItem.title
         let imageDate = convertDateFormat(inputDate: mediaItem.dateCreated!)
@@ -64,14 +62,15 @@ class ImageDetailsViewController: UIViewController {
         dateCreatedLbl.text = imageDate
 
         AF.request(mediaItem.imageLink!).responseImage { response  in
+           
             if let image = response.value {
-
                 DispatchQueue.main.async {
                     let radius: CGFloat = 15.0
                  self.selectedImageView.image = image.af.imageRounded(withCornerRadius: radius)
 
                 }
             }
+            
         }
     }
     

@@ -19,11 +19,11 @@ class CollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageInCell.image = nil
+        imageDetailLabel.text = nil
+        
     }
     
     @IBOutlet weak var imageInCell: UIImageView!
-    
-    
     @IBOutlet weak var imageDetailLabel: UILabel!
     
   //  var selectedItem = NetworkingService.shared.searchedObject
@@ -42,6 +42,21 @@ class CollectionViewCell: UICollectionViewCell {
                     let radius: CGFloat = 15.0
                     self.imageInCell?.image = image.af.imageRounded(withCornerRadius: radius)
                     
+                }
+            }
+        }
+    }
+    
+   func configureCells2(imageName:String, url: String){
+        imageDetailLabel.text = imageName
+    let downloader = ImageDownloader()
+    let urlRequest = URLRequest(url: URL(string: url)!)
+    downloader.download(urlRequest) { response in
+        debugPrint(response.result)
+        if let image = response.value {
+            DispatchQueue.main.async {
+                              let radius: CGFloat = 15.0
+                              self.imageInCell?.image = image.af.imageRounded(withCornerRadius: radius)
                 }
             }
         }
