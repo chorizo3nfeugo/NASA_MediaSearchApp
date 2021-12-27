@@ -19,7 +19,6 @@
 		C051058C276145C1001BA072 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051058B276145C1001BA072 /* NetworkingService.swift */; };
 		C0970C3E2779809500626FD8 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C0970C3D2779809500626FD8 /* Readme.md */; };
 		C0970C402779849600626FD8 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0970C3F2779849600626FD8 /* CollectionReusableView.swift */; };
-		C0C8D7C1276A2D08000704E7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D7C0276A2D08000704E7 /* RootViewController.swift */; };
 		C0E05474277932330043584F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E05473277932330043584F /* Alerts.swift */; };
 		C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE77276457E3004949AA /* NetworkingError.swift */; };
 		C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaItem.swift */; };
@@ -41,7 +40,6 @@
 		C051058B276145C1001BA072 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		C0970C3D2779809500626FD8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		C0970C3F2779849600626FD8 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
-		C0C8D7C0276A2D08000704E7 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C0E05473277932330043584F /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		C0E8CE77276457E3004949AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		C0E8CE792764587E004949AA /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				C051058A276145AD001BA072 /* Models */,
 				C01A03722760901700879E76 /* Controllers */,
 				C049305B27608D0100C99F24 /* AppDelegate.swift */,
-				C0C8D7C0276A2D08000704E7 /* RootViewController.swift */,
 				C049305D27608D0100C99F24 /* SceneDelegate.swift */,
 				C049306127608D0200C99F24 /* Main.storyboard */,
 				C049306427608D0600C99F24 /* Assets.xcassets */,
@@ -258,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C8D7C1276A2D08000704E7 /* RootViewController.swift in Sources */,
 				C051058C276145C1001BA072 /* NetworkingService.swift in Sources */,
 				C01A03742760904B00879E76 /* SearchViewController.swift in Sources */,
 				C0970C402779849600626FD8 /* CollectionReusableView.swift in Sources */,
