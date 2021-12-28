@@ -17,7 +17,7 @@ B)    Overview of how app is architected:
 There are just two UIViews. The first one you see has a search bar at the top and a collection view. Input your search query to load in search results of whatever you typed in.
     
 
-Once you scroll to the bottom, just press+hold and swipe up again to have the collectionview refresh with more images from the API. Just need to wait 3 secs or so to have them load in.
+Once you scroll to the bottom, just press+hold and swipe up again to have the collectionview refresh with more images from the API. Just need to wait 3-4  secs or so to have them load in.
 
 Clicking on any of the images will bring you to another ViewController that has the details of the picture and time/date of when it was taken.
 

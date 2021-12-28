@@ -10,21 +10,7 @@ import UIKit
 
 class FooterCollectionReusableView: UICollectionReusableView {
    
-    static let identifier = "FooterCollectionViewReusableView"
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    
-    required init?(coder:NSCoder){
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
- 
+   
     
   
     
@@ -33,19 +19,6 @@ class FooterCollectionReusableView: UICollectionReusableView {
 
 class HeaderCollectionReusableView: UICollectionReusableView {
    
-    static let identifier = "HeaderCollectionViewReusableView"
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    
-    required init?(coder:NSCoder){
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
+  
     
 }

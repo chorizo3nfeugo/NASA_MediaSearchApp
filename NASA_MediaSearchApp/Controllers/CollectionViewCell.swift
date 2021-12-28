@@ -12,26 +12,26 @@ import Alamofire
 
 class CollectionViewCell: UICollectionViewCell {
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageInCell.image = nil
-        imageDetailLabel.text = nil
-        
-    }
-    
     @IBOutlet weak var imageInCell: UIImageView!
     @IBOutlet weak var imageDetailLabel: UILabel!
     
-  //  var selectedItem = NetworkingService.shared.searchedObject
-  //  public var selectedItem = SearchViewController.shared.nasaItems
-
+    
+// MARK: -                                                                      ViewDidLoad
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+        }
+        
+// MARK: -                                                                      Prepares cells for reuse
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            imageInCell.image = nil
+            imageDetailLabel.text = nil
+            
+        }
+        
+// MARK: -                                                                      Configures cells with image and title
     func configureCells(imageName:String, url: String){
-       
-   
         
         imageDetailLabel.text = imageName
         
@@ -46,20 +46,4 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
-   func configureCells2(imageName:String, url: String){
-        imageDetailLabel.text = imageName
-    let downloader = ImageDownloader()
-    let urlRequest = URLRequest(url: URL(string: url)!)
-    downloader.download(urlRequest) { response in
-        debugPrint(response.result)
-        if let image = response.value {
-            DispatchQueue.main.async {
-                              let radius: CGFloat = 15.0
-                              self.imageInCell?.image = image.af.imageRounded(withCornerRadius: radius)
-                }
-            }
-        }
-    }
-    
 }

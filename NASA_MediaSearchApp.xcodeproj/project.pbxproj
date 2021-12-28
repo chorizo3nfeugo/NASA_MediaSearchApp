@@ -18,9 +18,6 @@
 		C049306827608D0600C99F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C049306627608D0600C99F24 /* LaunchScreen.storyboard */; };
 		C051058C276145C1001BA072 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051058B276145C1001BA072 /* NetworkingService.swift */; };
 		C0970C3E2779809500626FD8 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C0970C3D2779809500626FD8 /* Readme.md */; };
-		C0970C402779849600626FD8 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0970C3F2779849600626FD8 /* CollectionReusableView.swift */; };
-		C0E05474277932330043584F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E05473277932330043584F /* Alerts.swift */; };
-		C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE77276457E3004949AA /* NetworkingError.swift */; };
 		C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8CE792764587E004949AA /* MediaItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,9 +36,6 @@
 		C049306927608D0600C99F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C051058B276145C1001BA072 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		C0970C3D2779809500626FD8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		C0970C3F2779849600626FD8 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
-		C0E05473277932330043584F /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		C0E8CE77276457E3004949AA /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		C0E8CE792764587E004949AA /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		E77F1A194DF88D897AF53D4E /* Pods-NASA_MediaSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA_MediaSearchApp.release.xcconfig"; path = "Target Support Files/Pods-NASA_MediaSearchApp/Pods-NASA_MediaSearchApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +75,6 @@
 				C01A03732760904B00879E76 /* SearchViewController.swift */,
 				C01697C3276907AD001B4C58 /* ImageDetailsViewController.swift */,
 				C01A03752760A13F00879E76 /* CollectionViewCell.swift */,
-				C0970C3F2779849600626FD8 /* CollectionReusableView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				C051058B276145C1001BA072 /* NetworkingService.swift */,
-				C0E8CE77276457E3004949AA /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -134,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				C0E8CE792764587E004949AA /* MediaItem.swift */,
-				C0E05473277932330043584F /* Alerts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,11 +248,8 @@
 			files = (
 				C051058C276145C1001BA072 /* NetworkingService.swift in Sources */,
 				C01A03742760904B00879E76 /* SearchViewController.swift in Sources */,
-				C0970C402779849600626FD8 /* CollectionReusableView.swift in Sources */,
 				C049305C27608D0100C99F24 /* AppDelegate.swift in Sources */,
 				C01697C4276907AD001B4C58 /* ImageDetailsViewController.swift in Sources */,
-				C0E8CE78276457E3004949AA /* NetworkingError.swift in Sources */,
-				C0E05474277932330043584F /* Alerts.swift in Sources */,
 				C01A03762760A13F00879E76 /* CollectionViewCell.swift in Sources */,
 				C049305E27608D0100C99F24 /* SceneDelegate.swift in Sources */,
 				C0E8CE7A2764587E004949AA /* MediaItem.swift in Sources */,

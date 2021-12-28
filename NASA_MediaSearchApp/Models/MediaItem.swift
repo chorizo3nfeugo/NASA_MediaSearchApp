@@ -10,8 +10,6 @@ import Foundation
 import SwiftyJSON
 
 
-
-
 class MediaItem {
    
     var title:String?
